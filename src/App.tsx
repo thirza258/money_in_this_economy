@@ -6,10 +6,17 @@ import HorizontalLineGraph from "./components/HorizontalLineGraph";
 import TodoList from "./components/TodoList";
 import PrimaryCard from "./components/PrimaryCard";
 import NavBar from "./components/NavBar";
+import { useQuery } from "convex/react";
+import { api } from "../convex/_generated/api";
+
 
 function App() {
   const [count, setCount] = useState(0);
+  const tasks = useQuery(api.tasks.get);
 
+  const useEffect = () => {
+    console.log(tasks);
+  }
   return (
     <div>
       <div id="wrapper">
